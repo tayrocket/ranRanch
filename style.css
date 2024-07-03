@@ -1,0 +1,384 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Garamond, Georgia, serif;
+}
+/*
+COLOR PALETTE:
+fonts: #D9D3CE
+nav, borders, hr: #243544
+body background: linear-gradient(to right, #2D4B65,#5488B6)
+picture frames: #34495E
+*/
+
+/**************************************************************************************************/
+/*general for all pages*/
+body{
+    background: linear-gradient(to right, #2D4B65,#5488B6);
+    width: 100%;
+    height: 100vh;
+}
+nav{
+    padding: 10px 10px;
+    margin-bottom: 10%;
+    position: absolute;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background: #243544 ;
+    z-index: 1;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 15px;
+}
+nav ul li a{
+    position: relative;
+    text-decoration: none;
+    color:#D9D3CE;
+    font-weight: 400;
+    transition: 0.5s;
+    padding: 6px 20px;
+}
+
+/*span controls the line activated on hover*/
+nav a span{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-bottom: 2px solid #D9D3CE;
+    transform: scale(0) translateY(50px);
+    opacity: 0;
+    transition: .5s;
+}
+nav a:hover span{
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/*header on features and story*/
+header{
+    border-bottom: 20px solid #243544;
+    width: 100%;
+    padding-top: 75px;
+}
+header h1{
+    margin: 0 2.5% 0 2.5%;
+}
+header p{
+    margin: 0 2.5% 2.5% 2.5%;
+}
+
+/*footer on all pages*/
+footer {
+    font-size: .60em;
+    font-style: italic;
+    text-align: center;
+    margin: 5% 0 0 0;
+    color: #D9D3CE;
+}
+
+/*btn appears in services and request form*/
+.btn{
+    display:inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    padding:14px 40px;
+    margin-top: 5%;
+    color:#D9D3CE;
+    background-image: linear-gradient(45deg, #34495E,#243544);
+    /*for the shape and the hover feature*/
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+}
+.btn:hover{
+    border-top-right-radius: 30px;
+}
+
+/*set auto size and color for all fonts*/
+h1, h2, h3, p, small{color:#D9D3CE; }
+h1{font-size: 70px;}
+h2{font-size: 40px;}
+p{font-size: 18px;}
+small{font-size: 10px;}
+
+
+
+/**************************************************************************************************/
+/*FOR INDEX*/
+/*main body*/
+
+/*parent flex-box*/
+.hero{
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    align-items: start;
+    grid-row-gap: 1em;
+} 
+
+/*content includes the words*/
+.content{
+    margin: 10% 0 0 2.5%;
+    flex: 1;
+    max-width: 600px;
+    float: left;
+}
+.content h1{
+    font-size: 90px;
+}
+.content h2, .content p{
+    animation-delay: 0.5s;
+    margin-top: 10px;
+}
+
+/*image on home page*/
+.sideimage{
+    margin: 10% 2.5% 0 2.5%;
+}
+.sideimage img{
+    width: 600px;
+    height: auto;
+}
+.sideimage.anim{
+   animation-delay: 1.2s; 
+}
+
+/*animation in index*/
+.anim{
+    opacity:0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+@keyframes moveup{
+    100%{
+        opacity:1;
+        transform: translateY(0px);
+    }
+}
+
+/**************************************************************************************************/
+/*FOR REQUEST FORM*/
+form{
+    padding: 60px 40px 10px 40px;  
+}
+label{
+    float:left;
+    width: 400px;
+    clear: left;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: #D9D3CE;
+    font-size: 30px;
+}
+input, textarea, select{
+    margin-top: 10px;
+    display: block;
+    min-height: 40px;
+    min-width: 200px;
+}
+/*for submit btn, class details found above under general for all pages*/
+#submit{
+    margin-left: 410px;
+    color: #D9D3CE;
+}
+
+
+
+/**************************************************************************************************/
+/*FOR SERVICES*/
+
+/*parent flex-box, includes .header, .words, and .image*/
+.services{
+    margin:auto;
+    display: flex; 
+    column-gap: 10px;
+    flex-flow: row wrap;
+    align-content:center;
+}
+
+/*sections with info written*/
+.words{
+    width: 450px;
+    margin: 2.5% 2.5% 2.5% 5%;
+}
+.words h2{
+    margin-top: 10px;
+}
+.words p{
+    margin-top: 10px;
+}
+.words small{
+    line-height: .25;
+}
+
+/*sections with pictures*/
+.image, video{
+    max-width: 475px;
+    height: auto;
+    margin: 2.5% 2.5% 2.5% 5%;   
+}
+.image img, video{
+    display: block; /*fixed issue with space above bottom border*/
+    border-style: ridge;
+    border-width: 10px;
+    border-color: #34495E;
+    overflow: auto; 
+    width: 450px;
+    height: auto;
+}
+
+/*a line between each service neatly dividing them*/
+hr{
+    position:relative; 
+    width:100%; 
+    height: 5px;
+    border-color: #243544;
+    background-color: #243544;
+}
+
+/**************************************************************************************************/
+/*FOR STORY*/
+
+.story{
+    margin:auto;
+    width: 90%;
+}
+.story p{
+    padding: 2% 2% 2% 2%;
+}
+.story a{
+    text-decoration: none;
+    color:#D9D3CE; 
+}
+.story a:hover{
+    text-decoration: underline;
+    color: #243544;
+}
+#sing{
+    float: right;
+    padding-left: 2%;
+    padding: 10px 10px 10px 10px;
+}
+#frnds{
+    float: left;
+    padding: 10px 10px 10px 10px;
+    
+}
+#mimosa{
+    float: right;
+    padding: 10px 10px 10px 10px;
+}
+.story img{
+    max-width: 300px;
+    height: auto;
+}
+
+/**************************************************************************************************/
+/*FOR DIFFERENT DEVICES*/
+@media only screen and (max-width: 1000px) {
+    /* For where the navigation starts wrapping */
+    nav, .hero, header, .services, .story, footer, form {
+        width: 100%;
+        display: block;
+        align-items: center;
+    }
+    /*stack on top of one another*/
+    nav ul li{
+        display: block; 
+    }
+    nav ul{
+        margin:0;
+        padding: 0;
+    }
+    /*make the things below be able to be seen*/
+    nav{
+        position: sticky;
+        align-content: center;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    /*img was overflowing on home*/
+    .sideimage img{
+        max-width: 500px;
+        height: auto;
+    }
+    /*fix large gap caused by sticky*/
+    header, .content{
+        padding-top: 0;
+        margin-top: 0;
+    }
+    
+    /*put some space between p and img*/
+    .content p{
+        padding-bottom: 2.5%;
+    }
+    
+    /*fixing form*/
+    label{
+        font-size:3vw;
+        width: 200px;
+    }
+    input, textarea, select{
+        min-height: 4vw;
+    }
+    #submit{
+        margin-left: 210px;
+    }
+}
+
+@media only screen and (max-width: 414px){
+    /*For mobile phones:*/
+    
+    /*editing services to not overflow*/
+    .image img, video{
+        border-width: 5px; 
+        width: 350px;
+        height: auto;
+    }
+    .words{
+        max-width: 350px;
+    }
+    .sideimage img{
+        max-width: 350px;
+        height: auto;
+    }
+    
+    /*have font sizes update appropriately*/
+    h1 {
+        font-size:10vw;
+    }
+    .content h1{
+        font-size: 15vw;
+    }
+    h2{
+        font-size: 7vw;
+    }
+    p{
+        font-size: 5vw;
+    }
+    small{
+        font-size: 3.5vw;
+    }
+    /*hide img in story bc still displaying in comp format on mobile?????*/
+    .story img{
+        display: none;
+    }
+    #submit{
+        margin-left: 10px;
+    }
+}
+
+
+
+
+
+
+
